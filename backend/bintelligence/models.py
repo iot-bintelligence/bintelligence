@@ -27,5 +27,5 @@ class Measurement(models.Model):
     class Meta:
         ordering = ['-timestamp']
 
-         def __str__(self):
-             return f'Temperature: {self.temperature}, Humidity: {self.humidity}'
+        def __str__(self):
+            return f'Temperature: {self.temperature}, Humidity: {self.humidity}'
