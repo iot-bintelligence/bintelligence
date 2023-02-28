@@ -1,7 +1,8 @@
 from django.shortcuts import render
-
-from django.shortcuts import render
 import requests
+from rest_framework import generics
+from .models import Device
+from .serializers import DeviceSerializer
 
 
 def my_view(request):
@@ -12,4 +13,9 @@ def my_view(request):
         'ip': ip,
     }
     return render(request, 'my_template.html', context)
+
+class DeviceList(generics.ListCreateAPIView):
+        queryset = Device.objects.all()
+        serializer_class = DeviceSerializer
+        http_method_names = ['get', 'post']
 

@@ -15,9 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from bintelligence.views import my_view
+from bintelligence.views import my_view, DeviceList
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    #path('', my_view, name='my_url'),
+    path('api/devices/', DeviceList.as_view(), name='device_list'),
 ]
