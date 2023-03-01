@@ -3,6 +3,7 @@ import requests
 from rest_framework import generics
 from rest_framework import views
 from rest_framework.response import Response
+from rest_framework.parsers import JSONParser
 from .models import * 
 from .serializers import *
 
@@ -26,3 +27,10 @@ class TestList(views.APIView):
         data = [{"name":"ivan"},{"name":"erik"}]
         serializer_class = TestSerializer(data, many=True).data
         return Response(serializer_class)
+
+class SpanInput(views.APIView):
+    def post(self, request):
+        parser_classes = [JSONParser]
+        print(request.data)
+        return Response({"received data": request.data})
+

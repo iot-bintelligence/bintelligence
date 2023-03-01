@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from bintelligence.views import my_view, DeviceList
+from bintelligence.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/devices/', DeviceList.as_view(), name='device_list'),
+    path('api/test/', TestList.as_view(), name='test_list'),
+    path('api/input/', SpanInput.as_view(), name='span'),
 ]
