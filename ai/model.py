@@ -31,3 +31,6 @@ model.fit(train_x, train_y, epochs=100)
 # Evaluate the model
 test_loss = model.evaluate(test_x, test_y)
 print('Test Loss:', test_loss)
+
+# Save the model
+model.save('./models/waste_model.h5')
