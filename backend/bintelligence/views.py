@@ -6,6 +6,8 @@ from rest_framework.response import Response
 from rest_framework.parsers import JSONParser
 from .models import * 
 from .serializers import *
+import numpy as np
+import tensorflow as tf
 
 
 def my_view(request):
@@ -39,9 +41,18 @@ class SpanInput(views.APIView):
         return Response({"received data": request.data})
 
 class PredictedValueView(views.APIView):
+
+    # Load the saved model
+    def __init__(self):
+        self.model = tf.keras.models.load_model('../../ai/models/waste_model.h5')
+
     def get(self, request):
         last_measure = Measurement.objects.all().last()
-        
-        #use model to predict output
 
-        return Response({"last measurement": last_measurement})
+        # Prepare the input data
+        input_x = np.array([[last_measure.timestamp, last_measure.distance]])
+
+        # Predict the timestamp when the container will be full
+        predicted_full_timestamp = self.model.predict(input_x)[0][0]
+
+        return Response({"last measurement": predicted_full_timestamp})
