@@ -22,4 +22,5 @@ urlpatterns = [
     path('api/devices/', DeviceList.as_view(), name='device_list'),
     path('api/test/', TestList.as_view(), name='test_list'),
     path('api/input/', SpanInput.as_view(), name='span'),
+    path('api/prediction/', PredictedValueView.as_view(), name= 'prediction'),
 ]

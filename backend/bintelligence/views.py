@@ -23,7 +23,7 @@ class DeviceList(generics.ListCreateAPIView):
         http_method_names = ['get', 'post']
 
 class TestList(views.APIView):
-    def get(self,request): 
+    def get(self, request): 
         data = [{"name":"ivan"},{"name":"erik"}]
         serializer_class = TestSerializer(data, many=True).data
         return Response(serializer_class)
@@ -31,6 +31,17 @@ class TestList(views.APIView):
 class SpanInput(views.APIView):
     def post(self, request):
         parser_classes = [JSONParser]
+        
+        # to do
+        #create object in db from request's payload
+
         print(request.data)
         return Response({"received data": request.data})
 
+class PredictedValueView(views.APIView):
+    def get(self, request):
+        last_measure = Measurement.objects.all().last()
+        
+        #use model to predict output
+
+        return Response({"last measurement": last_measurement})
