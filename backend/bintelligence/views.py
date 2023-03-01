@@ -1,8 +1,10 @@
 from django.shortcuts import render
 import requests
 from rest_framework import generics
-from .models import Device
-from .serializers import DeviceSerializer
+from rest_framework import views
+from rest_framework.response import Response
+from .models import * 
+from .serializers import *
 
 
 def my_view(request):
@@ -19,3 +21,8 @@ class DeviceList(generics.ListCreateAPIView):
         serializer_class = DeviceSerializer
         http_method_names = ['get', 'post']
 
+class TestList(views.APIView):
+    def get(self,request): 
+        data = [{"name":"ivan"},{"name":"erik"}]
+        serializer_class = TestSerializer(data, many=True).data
+        return Response(serializer_class)

@@ -8,3 +8,6 @@ class DeviceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Device
         fields = '__all__'
+
+class TestSerializer(serializers.Serializer):
+    name = serializers.CharField(max_length = 30)
