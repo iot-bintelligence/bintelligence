@@ -2,6 +2,7 @@ import tensorflow as tf
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
 
 # Load the data
 df = pd.read_csv('./dataset/dataset.csv', sep=',')
@@ -66,10 +67,19 @@ test_result = pd.DataFrame(data={'Test pred': test_pred, 'Test actual': y_test, 
 print(test_result)
 
 # Plot the results
-plt.plot(test_result['Timestamp'], test_result['Test pred'], label='Test pred')
-plt.plot(test_result['Timestamp'], test_result['Test actual'], label='Test actual')
-plt.title('Test')
-plt.xlabel('Time')
+
+
+fig, ax = plt.subplots()
+
+ax.plot(test_result['Timestamp'], test_result['Test pred'], label='Test pred')
+ax.plot(test_result['Timestamp'], test_result['Test actual'], label='Test actual')
+
+# Set the format of the x-axis labels to display the timestamp in the format '%Y-%m-%d %H:%M:%S'
+date_fmt = '%Y-%m-%d %H:%M:%S'
+date_formatter = mdates.DateFormatter(date_fmt)
+ax.xaxis.set_major_formatter(date_formatter)
+plt.gcf().autofmt_xdate()
+plt.xlabel('Timestamp')
 plt.ylabel('Measurement')
 plt.legend()
 plt.show()
