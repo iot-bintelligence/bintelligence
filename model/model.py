@@ -11,6 +11,7 @@ measurement = df['measurement']
 
 def df_to_x_y(df, window_size=5):
     df_as_numpy = df.to_numpy()
+    timestamps = df.index[window_size:]
     X = []
     y = []
     for i in range(len(df_as_numpy) - window_size):
@@ -18,11 +19,11 @@ def df_to_x_y(df, window_size=5):
         X.append(row)
         label = df_as_numpy[i + window_size]
         y.append(label)
-    return np.array(X), np.array(y)
+    return np.array(X), np.array(y), timestamps
 
 # Prepare the data
 window_size = 5
-X, y = df_to_x_y(measurement, window_size)
+X, y, timestamps = df_to_x_y(measurement, window_size)
 
 # Split the data
 data_size = len(X)
@@ -31,6 +32,7 @@ train_size = int(data_size * 0.7)
 # Train and test data
 X_train, y_train = X[:train_size], y[:train_size]
 X_test, y_test = X[train_size+1:], y[train_size+1:]
+test_timestamps = timestamps[train_size+1:]
 
 # Build the model
 model = tf.keras.models.Sequential()
@@ -58,14 +60,14 @@ model = tf.keras.models.load_model('./models/model.h5')
 
 # Test the model
 test_pred = model.predict(X_test).flatten()
-test_result = pd.DataFrame(data={'Test pred': test_pred, 'Test actual': y_test})
+test_result = pd.DataFrame(data={'Test pred': test_pred, 'Test actual': y_test, 'Timestamp': test_timestamps})
 
 # Print the results
 print(test_result)
 
 # Plot the results
-plt.plot(test_result['Test pred'], label='Test pred')
-plt.plot(test_result['Test actual'], label='Test actual')
+plt.plot(test_result['Timestamp'], test_result['Test pred'], label='Test pred')
+plt.plot(test_result['Timestamp'], test_result['Test actual'], label='Test actual')
 plt.title('Test')
 plt.xlabel('Time')
 plt.ylabel('Measurement')
