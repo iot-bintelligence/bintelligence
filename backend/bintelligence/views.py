@@ -44,15 +44,10 @@ class PredictedValueView(views.APIView):
 
     # Load the saved model
     def __init__(self):
-        self.model = tf.keras.models.load_model('../../ai/models/waste_model.h5')
+        self.model = tf.keras.models.load_model('../../analytics/models/model.h5')
 
     def get(self, request):
-        last_measure = Measurement.objects.all().last()
+        
+        # TODO predict the value
 
-        # Prepare the input data
-        input_x = np.array([[last_measure.timestamp, last_measure.distance]])
-
-        # Predict the timestamp when the container will be full
-        predicted_full_timestamp = self.model.predict(input_x)[0][0]
-
-        return Response({"last measurement": predicted_full_timestamp})
+        return Response({"last measurement": None})
