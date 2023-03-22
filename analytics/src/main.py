@@ -54,10 +54,10 @@ model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=0.001),
 model.fit(X_train, y_train, epochs=1000)
 
 # Save the model
-model.save('./models/model.h5')
+model.save('../models/model.h5')
 
 # Evaluate the model
-model = tf.keras.models.load_model('./models/model.h5')
+model = tf.keras.models.load_model('../models/model.h5')
 
 # Test the model
 test_pred = model.predict(X_test).flatten()
