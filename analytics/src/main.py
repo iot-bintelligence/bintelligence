@@ -6,7 +6,7 @@ import matplotlib.dates as mdates
 
 # Hyperparameters
 learning_rate = 0.001
-epochs = 1000
+epochs = 5000
 window_size = 5
 
 # Load the data
@@ -85,7 +85,7 @@ plt.gcf().autofmt_xdate()
 plt.title('Test results')
 plt.xlabel('Timestamp')
 plt.ylabel('Measurement')
-plt.legend()
+plt.legend(loc='upper left')
 
 # Plot the training and test data in the same plot
 fig, ax = plt.subplots()
@@ -101,5 +101,5 @@ plt.gcf().autofmt_xdate()
 plt.title('Training and test results')
 plt.xlabel('Timestamp')
 plt.ylabel('Measurement')
-plt.legend()
+plt.legend(loc='upper left')
 plt.show()
