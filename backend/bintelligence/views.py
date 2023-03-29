@@ -6,7 +6,9 @@ from rest_framework.response import Response
 from rest_framework.parsers import JSONParser
 from .models import * 
 from .serializers import *
-import base64
+import numpy as np
+import tensorflow as tf
+
 
 def my_view(request):
     response = requests.get('https://api.agify.io/?name=meelad')
@@ -22,11 +24,6 @@ class DeviceList(generics.ListCreateAPIView):
         serializer_class = DeviceSerializer
         http_method_names = ['get', 'post']
 
-class MeasurementList(generics.ListCreateAPIView):
-        queryset = Measurement.objects.all()
-        serializer_class = MeasurementSerializer
-        http_method_names = ['get']
-
 class TestList(views.APIView):
     def get(self, request): 
         data = [{"name":"ivan"},{"name":"erik"}]
@@ -39,26 +36,18 @@ class SpanInput(views.APIView):
         
         # to do
         #create object in db from request's payload
-        data = request.data["messages"]
-        payload = data[0]["payload"]
-        distance_hex = base64.b64decode(payload)
-        distance_int = int.from_bytes(distance_hex,"big")
 
-        #TODO change to find device by ID
-
-        device = Device.objects.all().last()        
-        measurement = Measurement(device = device, distance = distance_int, temperature = 0, humidity = 0)
-        measurement.save()
-
-        print(distance_int)
-
-        #return Response({"received data": request.data})
-        return Response({"Distance mm" : distance_int})
+        print(request.data)
+        return Response({"received data": request.data})
 
 class PredictedValueView(views.APIView):
-    def get(self, request):
-        last_measure = Measurement.objects.all().last()
-        
-        #use model to predict output
 
-        return Response({"last measurement": last_measurement})
+    # Load the saved model
+    def __init__(self):
+        self.model = tf.keras.models.load_model('../../analytics/models/model.h5')
+
+    def get(self, request):
+        
+        # TODO predict the value
+
+        return Response({"last measurement": None})
