@@ -1,10 +1,11 @@
-import styles from './Homepage.css'
+import './Homepage.css'
 import Header from '../components/Header'
+
 
 
 function Homepage() {
     return (
-      <div className={styles.container}>
+      <div className="container">
         <Header />
       </div>
     );
