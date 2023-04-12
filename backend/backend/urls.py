@@ -19,7 +19,7 @@ from bintelligence.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/measurement/', MeasurementList.as_view(), name='measurement_list'),
+    #path('api/measurement/', MeasurementList.as_view(), name='measurement_list'),
     path('api/devices/', DeviceList.as_view(), name='device_list'),
     path('api/test/', TestList.as_view(), name='test_list'),
     path('api/input/', SpanInput.as_view(), name='span'),
