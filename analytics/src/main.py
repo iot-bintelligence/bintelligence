@@ -6,7 +6,7 @@ import matplotlib.dates as mdates
 
 # Hyperparameters
 learning_rate = 0.001
-epochs = 1000
+epochs = 100
 window_size = 5
 
 # Load the data
@@ -16,7 +16,7 @@ df_sorted = df.sort_values("timestamp", ascending=True)
 
 # df_sorted.to_csv("data_sorted.csv", index=False)
 
-# df.index = pd.to_datetime(df['timestamp'], format='%Y-%m-%d %H:%M:%S')
+df.index = pd.to_datetime(df['timestamp'], format='%Y-%m-%d %H:%M:%S')
 
 measurement = df['measurement']
 
