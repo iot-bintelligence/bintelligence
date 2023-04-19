@@ -25,6 +25,7 @@ class Measurement(models.Model):
     timestamp = models.DateTimeField(default=timezone.now)
     
     class Meta:
+        get_latest_by = 'timestamp'
         ordering = ['-timestamp']
 
         def __str__(self):

@@ -6,7 +6,7 @@ import matplotlib.dates as mdates
 
 # Hyperparameters
 learning_rate = 0.001
-epochs = 100
+epochs = 1000
 window_size = 5
 
 # Load the data
