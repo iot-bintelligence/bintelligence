@@ -6,8 +6,8 @@ function MyBins() {
     <div className="binContainer">
       <h1>Mine komprimatorer</h1>
       <div className="mybins">
-        <Bin />
-        <Bin />
+        <Bin name={"Roverud sykehjem"} fillDegree={74} estimate={"16 timer"}/>
+        <Bin name={"Langeland sykehjem"} fillDegree={34} estimate={"3 dager"}/>
       </div>
         
     </div>
