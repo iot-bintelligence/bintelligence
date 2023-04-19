@@ -27,6 +27,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["88.91.235.205","eit.hjelmtvedt.io"]
 
+# For testing
+#ALLOWED_HOSTS = ['127.0.0.1']
+
 
 # Application definition
 
