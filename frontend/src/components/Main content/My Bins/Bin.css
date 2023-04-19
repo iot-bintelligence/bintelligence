@@ -1,7 +1,7 @@
 .binItemContainer {
   margin-right: 30px;
   width: 40%;
-  height: 400px;
+  height: 415px;
   background: #FFFFFF;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
@@ -66,7 +66,7 @@
 .emptyButton {
   height: 40px;
   width: 80%;
-  margin-top: 10px;
+  margin-top: 20px;
   background: #34CD83; 
   border-radius: 5px;
   color: white;
