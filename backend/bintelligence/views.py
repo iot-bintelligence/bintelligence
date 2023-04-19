@@ -69,7 +69,7 @@ class PredictedValueView(views.APIView):
             # Make a prediction
             res = self.forecast(measurement_list)
         else:
-            date, hours, minutes = self.predict_dummy_data(latest_measurement.timestamp, latest_measurement.distance)
+            date, hours, minutes, percent = self.predict_dummy_data(latest_measurement.timestamp, latest_measurement.distance)
             
             # convert to desired format
             date = date.strftime("%Y-%m-%d %H:%M:%S")
@@ -85,8 +85,9 @@ class PredictedValueView(views.APIView):
             res = {
                 "date": date,
                 "time": hours,
+                "percent": str(percent) + "%",
+                "measurement": latest_measurement.distance
             }
-
         
         return Response(res)
     
@@ -122,23 +123,23 @@ class PredictedValueView(views.APIView):
         original_timestamp = datetime.fromisoformat(str(timestamp))
         # add 1 hour and 30 minutes
         if distance > 220:
-            return original_timestamp + timedelta(hours=62, minutes=30), 62, 30
+            return original_timestamp + timedelta(hours=62, minutes=30), 62, 30, 3
         elif distance > 200:
-            return original_timestamp + timedelta(hours=50), 50, 0
+            return original_timestamp + timedelta(hours=50), 50, 0, 10
         elif distance > 180:
-            return original_timestamp + timedelta(hours=40, minutes=30), 40, 30
+            return original_timestamp + timedelta(hours=40, minutes=30), 40, 30, 23
         elif distance > 160:
-            return original_timestamp + timedelta(hours=30), 30, 0
+            return original_timestamp + timedelta(hours=30), 30, 0, 32
         elif distance > 140:
-            return original_timestamp + timedelta(hours=20, minutes=30), 20, 30
+            return original_timestamp + timedelta(hours=20, minutes=30), 20, 30, 45
         elif distance > 120:
-            return original_timestamp + timedelta(hours=10), 10, 0
+            return original_timestamp + timedelta(hours=10), 10, 0, 56
         elif distance > 100:
-            return original_timestamp + timedelta(hours=5, minutes=30), 5, 30
+            return original_timestamp + timedelta(hours=5, minutes=30), 5, 30, 67
         elif distance > 80:
-            return original_timestamp + timedelta(hours=2), 2, 0
+            return original_timestamp + timedelta(hours=2), 2, 0, 78
         elif distance > 60:
-            return original_timestamp + timedelta(minutes=30), 0, 30
+            return original_timestamp + timedelta(minutes=30), 0, 30, 89
         else:
-            return original_timestamp + timedelta(minutes=15), 0, 15
+            return original_timestamp + timedelta(minutes=15), 0, 15, 99
     
