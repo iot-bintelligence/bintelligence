@@ -1,0 +1,22 @@
+.contentContainer {
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.binContainer {
+  flex: 2; /* 25% each */
+  height: 300px;
+}
+
+.settingsContainer {
+  flex: 1; /* 50% */
+  height: 300px;
+}
+
+.notificationsContainer {
+  flex: 1; /* 25% each */
+  height: 300px;
+}

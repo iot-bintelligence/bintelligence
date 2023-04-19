@@ -1,12 +1,12 @@
 import './Header.css'
-import logo from '../images/logo.png'
-import profilePicture from '../images/profilePicture.png'
+import logo from '../../images/logo.png'
+import profilePicture from '../../images/profilePicture.png'
 
 
 function Header() {
     return (
-        <div className="container">
-
+        <div className="headerContainer">
+            
             <div className="logoSection">
                 <img className='logo' src={logo} />
             </div>
