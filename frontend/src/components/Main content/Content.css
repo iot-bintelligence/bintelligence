@@ -20,3 +20,13 @@
   flex: 1; /* 25% each */
   height: 300px;
 }
+
+@media (max-width: 767px) {
+  .contentContainer {
+    flex-direction: column;
+  }
+
+  .binContainer, .settingsContainer, .notificationsContainer {
+    margin-bottom: 100px;
+  }
+}

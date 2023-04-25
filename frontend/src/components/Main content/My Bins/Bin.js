@@ -1,6 +1,9 @@
 import "./Bin.css"
 import binImage from '../../../images/binImage.png'
 import clock from '../../../images/clock.png'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
+
 
 
 function Bin({ name, fillDegree, estimate }) {
@@ -25,7 +28,7 @@ function Bin({ name, fillDegree, estimate }) {
                 </div>
             </div>
 
-            <div className="emptyButton">Registrer tømming    {">"}</div>
+            <div className="emptyButton">Registrer tømming<FontAwesomeIcon icon={faArrowRight} className="icon"/></div>
         </div>
     )
 }
