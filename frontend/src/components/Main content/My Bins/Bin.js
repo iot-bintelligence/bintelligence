@@ -16,7 +16,7 @@ function Bin({ name, fillDegree, estimate }) {
                 <div className="estimateItem">
                     <p className="estimateItemHeadline">Fyllingsgrad</p>
                     <div className="estimateRectangle">
-                        <p className="whiteText">{fillDegree}%</p>
+                        <p className="whiteText">{fillDegree}</p>
                     </div>
                 </div>
                 <div className="estimateItem">
