@@ -1,0 +1,96 @@
+.settingsBox {
+  
+  width: 80%;
+  height: 415px;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.notifTypeSection {
+  margin-left: 30px;
+}
+
+.chooseDegreeSection {
+  margin-top: 20px;
+  margin-left: 30px;
+}
+
+.notifText {
+  font-style: normal;
+  font-weight: 790;
+  font-size: 16px;
+  line-height: 19px;
+  /* identical to box height */
+  color: #000000;
+}
+
+.smsRadio {
+  margin-bottom: 10px;
+}
+
+.inputField {
+  margin-top: 20px;
+  border: none;
+  border-bottom: 1px solid gray;
+}
+
+.degreeText {
+  font-style: normal;
+  font-weight: 350;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 15px;
+  border-radius: 5px;  
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%; 
+  background: #5D68F1;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #5D68F1;
+  cursor: pointer;
+}
+
+.saveButton {
+  height: 40px;
+  width: 80%;
+  margin-top: 40px;
+  margin-left: 30px;
+  background: #34CD83; 
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  
+}
+
+.icon {
+  margin-right: 8px; /* Adjust this value to change the spacing */
+}

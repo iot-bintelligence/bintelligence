@@ -1,0 +1,82 @@
+.binItemContainer {
+  margin-right: 30px;
+  width: 40%;
+  height: 415px;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+
+  /* Flex stuff */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* Estimate and "filling degree" section */
+.estimateSection {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+
+}
+
+.estimateItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.estimateItemHeadline {
+  color: black;
+  font-style: normal;
+  font-weight: 790;
+  font-size: 16px;
+  line-height: 19px;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.estimateRectangle {
+  background-color: #5773F1;
+  height: 100px;
+  width: 100px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.clockImage {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.whiteText {
+  color: white;
+  font-weight: bold;
+  font-size: 16;
+  margin-top: 0;
+}
+
+.emptyButton {
+  height: 40px;
+  width: 80%;
+  margin-top: 20px;
+  background: #34CD83; 
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.icon {
+  margin-top: 4px;
+  margin-left: 18px;
+}
